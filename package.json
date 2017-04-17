@@ -4,6 +4,7 @@
   "description": "hello, web servers",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,7 +17,9 @@
     "url": "https://github.com/helenyau0/irritable-cat/issues"
   },
   "homepage": "https://github.com/helenyau0/irritable-cat#readme",
-  "devDependencies": {
-    "express": "^4.15.2"
+  "dependencies": {
+    "express": "^4.15.2",
+    "nodemon": "^1.11.0",
+    "pug": "^2.0.0-beta11"
   }
 }
