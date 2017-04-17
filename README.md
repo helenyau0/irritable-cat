@@ -72,8 +72,8 @@ Try to mimic the following mockup as closely as you can. Note that some of the f
 If you complete all of the specs listed above (the checkboxes), there’s no reason to stop there! Try building more advanced features with these stretch specs.
 
  - [ ] Clicking the trash can icon…
- - [ ] Deletes the file from the data/ folder
- - [ ] Shows the sidebar updated without the deleted file
+  - [ ] Deletes the file from the data/ folder
+  - [ ] Shows the sidebar updated without the deleted file
  - [ ] “Word count” section in the header displays the word count for the currently open file
 And if you get through those, try turning Bossggle into an Express app.
 
