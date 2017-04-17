@@ -1,0 +1,22 @@
+{
+  "name": "irritable-cat",
+  "version": "1.0.0",
+  "description": "hello, web servers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helenyau0/irritable-cat.git"
+  },
+  "author": "Helen Yau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/helenyau0/irritable-cat/issues"
+  },
+  "homepage": "https://github.com/helenyau0/irritable-cat#readme",
+  "devDependencies": {
+    "express": "^4.15.2"
+  }
+}
