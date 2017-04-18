@@ -1,11 +1,12 @@
 html
   head
     link(rel='stylesheet' href='stylesheet.css')
+    script(src="lib/marked.js")
     title Hello Web Servers
   body
     include header.pug
     include sidebar.pug
-    h1 Mark Down App
+    include editor.pug
 
     script(src='index.js')
     script(src="https://code.jquery.com/jquery-3.2.1.min.js"

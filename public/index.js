@@ -1,20 +1,35 @@
-function addButton (){
-    var nameFile = prompt('name your mark down file');
-    var node =document.createElement('li');
-    var textNode = document.createTextNode(nameFile);
-    node.appendChild(textNode);
-    document.getElementById('navi').appendChild(node);
+function addButton() {
+  let nameFile = prompt('name your mark down file');
+  let node = document.createElement('li');
+  let textNode = document.createTextNode(nameFile);
+  node.appendChild(textNode);
+  document.getElementById('navi').appendChild(node);
 
-    $('#navi li').attr('id', function(i){
-      return 'id'+(i+1);
-    })
+  let div = document.createElement('div')
+  document.getElementById('content').appendChild(div)
 
-    $('#navi li').addClass("clickable");
+  $('#navi li').attr('id', function(i){
+    return 'id'+(i+1);
+  })
 
-    $('.clickable').on('click', function(e){
-      var target = $(e.target).text()
-      var header = $("#header").html(target)
+  $('#navi li').addClass("clickable");
 
-      return header;
-    })
-  }
+  $('.clickable').on('click', function(e){
+    var target = $(e.target).text()
+    var header = $("#header").html(target)
+
+    return header;
+  })
+
+  $('#content').addClass('tab-content')
+
+
+
+
+    // $('.clickable').on('click', function() {
+    //   $(this).addClass('active')
+    // })
+
+}
+
+document.getElementById('content').innerHTML = marked('# Marked in browser\n\nRendered by **marked**.');

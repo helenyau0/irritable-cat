@@ -3,18 +3,34 @@
   height: 50px;
   background-color: grey;
   margin: 10px 0 0 250px;
+  border: 1px solid black;
+}
+
+#addButton {
+  width: 260px;
+}
+
+#content {
+  width: 45%;
+  height: 100%;
+  border: 1px solid black;
+  margin: -2px 0 0 251px;
 }
 
 .aycheone {
-  margin: -47px 0 0 10px;
+  width: 258px;
+  height: 50px;
+  border: 1px solid black;
+  background-color: grey;
+  margin: -52px 0 0 0px;
   position: absolute;
-  
+
 }
 
-#navi {
+ul {
   margin: 10px 0 0 10px;
   color: #000;
-  border: 1px solid #eee;
+  border: 1px solid black;
   list-style: none;
   /*padding: 12px 8px 12px 40px;*/
 }
