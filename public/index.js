@@ -1,27 +1,20 @@
 function addButton (){
-  var nameFile = prompt('name your mark down file');
-  var node =document.createElement('li');
-  var textNode = document.createTextNode(nameFile);
-  node.appendChild(textNode);
-  document.getElementById('navi').appendChild(node);
+    var nameFile = prompt('name your mark down file');
+    var node =document.createElement('li');
+    var textNode = document.createTextNode(nameFile);
+    node.appendChild(textNode);
+    document.getElementById('navi').appendChild(node);
 
-  $('#navi li').attr('id', function(i){
-    var idOfLi = 'id'+(i+1);
-    return idOfLi;
-    var element=document.getElementById(idOfLi);
-    element.addEventListener('click', function() {
-      var header = document.getElementById('header').innerHTML = 'puppies';
+    $('#navi li').attr('id', function(i){
+      return 'id'+(i+1);
     })
 
-  $("navi li").each(function() {
-           $(this).attr("class", "mdFile");
-     });
-  })
-}
+    $('#navi li').addClass("clickable");
 
+    $('.clickable').on('click', function(e){
+      var target = $(e.target).text()
+      var header = $("#header").html(target)
 
-// function copyListName () {
-//   $('#pages li').attr('id', function(i){
-//     return 'page'+(i+1);
-//   })
-// }
+      return header;
+    })
+  }
