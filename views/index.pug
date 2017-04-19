@@ -1,12 +1,13 @@
 html
   head
     link(rel='stylesheet' href='stylesheet.css')
-    script(src="lib/marked.js")
+    script(src="marked.js")
     title Hello Web Servers
   body
-    include header.pug
     include sidebar.pug
+    include header.pug
     include editor.pug
+    include preview.pug
 
     script(src='index.js')
     script(src="https://code.jquery.com/jquery-3.2.1.min.js"

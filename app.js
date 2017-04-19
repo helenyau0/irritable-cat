@@ -2,8 +2,6 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const marked = require('marked')
-console.log(marked('I am using __markdown__.'));
-
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -14,9 +12,9 @@ marked.setOptions({
   sanitize: true,
   smartLists: true,
   smartypants: false
-
 })
 
+console.log(marked('I am using __markdown__.'));
 
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))

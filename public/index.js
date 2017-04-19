@@ -8,20 +8,26 @@ function addButton() {
   let div = document.createElement('div')
   document.getElementById('content').appendChild(div)
 
-  $('#navi li').attr('id', function(i){
+  $('#navi li').attr('id', function(i) {
     return 'id'+(i+1);
   })
 
   $('#navi li').addClass("clickable");
 
-  $('.clickable').on('click', function(e){
-    var target = $(e.target).text()
-    var header = $("#header").html(target)
+  $('.clickable').on('click', function(e) {
+    let target = $(e.target).text()
+    let header = $("#header").html(target)
 
     return header;
   })
 
-  $('#content').addClass('tab-content')
+  $('div').addClass('tab-content')
+
+  $('#content').on('input', function(e) {
+    let contentValue = $(e.target).text()
+    $('#previewContent').html(marked(contentValue))
+    console.log('marked', marked(contentValue));
+  })
 
 
 
@@ -31,5 +37,6 @@ function addButton() {
     // })
 
 }
+// let content = document.getElementById('content').getAttribute('value')
 
-document.getElementById('content').innerHTML = marked('# Marked in browser\n\nRendered by **marked**.');
+// document.getElementById('previewContent').innerHTML = marked(content);
