@@ -1,7 +1,8 @@
+let currentFileName;
 function addButton() {
-  let nameFile = prompt('name your mark down file');
+  currentFileName = prompt('name your mark down file');
   let node = document.createElement('li');
-  let textNode = document.createTextNode(nameFile);
+  let textNode = document.createTextNode(currentFileName);
   node.appendChild(textNode);
   document.getElementById('navi').appendChild(node);
 
@@ -28,15 +29,23 @@ function addButton() {
     $('#previewContent').html(marked(contentValue))
     console.log('marked', marked(contentValue));
   })
+}
+
+function saveButton() {
+  let content = document.getElementById('content').innerHTML
+  console.log('body::', content);
 
 
+  var request = new Request('/save', {
+  	method: 'POST',
+    body: JSON.stringify({content: content, fileName: currentFileName}),
+  	mode: 'cors',
+  	redirect: 'follow',
+  	headers: new Headers({
+  		'Content-Type': 'application/json'
+  	})
+  });
 
-
-    // $('.clickable').on('click', function() {
-    //   $(this).addClass('active')
-    // })
+  fetch(request).then( result => console.log('result::', result))
 
 }
-// let content = document.getElementById('content').getAttribute('value')
-
-// document.getElementById('previewContent').innerHTML = marked(content);

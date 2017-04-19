@@ -2,6 +2,14 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const marked = require('marked')
+const fs = require("fs");
+const bodyParser = require('body-parser')
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -14,12 +22,23 @@ marked.setOptions({
   smartypants: false
 })
 
-console.log(marked('I am using __markdown__.'));
+app.post('/save', function(req, res) {
+  console.log('req.body::', req.body);
+  const {fileName, content} = req.body
+  fs.writeFile(fileName, content, function(error) {
+    if(error) {
+      console.log(error);
+    } else {
+      console.log('the file has been saved!');
+      res.json({'hello': 'hello'})
+    }
+  })
+
+})
+
 
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
-
-console.log('joing to path', path.join(__dirname,'public'));
 
 app.use(express.static(path.join(__dirname,'public')))
 
