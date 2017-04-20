@@ -36,7 +36,7 @@ function saveButton() {
   console.log('body::', content);
 
 
-  var request = new Request('/save', {
+  let request = new Request('/save', {
   	method: 'POST',
     body: JSON.stringify({content: content, fileName: currentFileName}),
   	mode: 'cors',
@@ -48,4 +48,9 @@ function saveButton() {
 
   fetch(request).then( result => console.log('result::', result))
 
+  fetch('/showfile', {
+    method: 'GET',
+  }).then(function(res) {
+    console.log('response', res);
+  })
 }

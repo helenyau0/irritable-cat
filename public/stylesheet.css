@@ -9,7 +9,9 @@
 }
 
 #saveButton {
-  margin: 10px 0 0 1350px;
+  position: fixed;
+  z-index: 1000;
+  margin: 10px 0 0 1625px;
 }
 
 #addButton {
