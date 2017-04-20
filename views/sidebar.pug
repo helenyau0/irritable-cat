@@ -3,3 +3,6 @@
   button#addButton(onclick='addButton()') New File  +
 
   ul#navi
+    for val in files
+      li
+        a(href='/' + val)=val

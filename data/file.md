@@ -1,1 +1,0 @@
-farts<div class="tab-content"></div>

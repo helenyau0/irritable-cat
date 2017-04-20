@@ -13,7 +13,7 @@ function addButton() {
     return 'id'+(i+1);
   })
 
-  $('#navi li').addClass("clickable");
+  $('#navi li').addClass("clickable")
 
   $('.clickable').on('click', function(e) {
     let target = $(e.target).text()
@@ -29,6 +29,20 @@ function addButton() {
     $('#previewContent').html(marked(contentValue))
     console.log('marked', marked(contentValue));
   })
+}
+
+function tabs() {
+
+
+  fetch('/:filename', {
+    method: 'get'
+  }).then(function(response) {
+    console.log(response);
+  }).catch(function(error) {
+    console.log('error ' + error);
+  })
+
+
 }
 
 function saveButton() {
@@ -47,10 +61,4 @@ function saveButton() {
   });
 
   fetch(request).then( result => console.log('result::', result))
-
-  fetch('/showfile', {
-    method: 'GET',
-  }).then(function(res) {
-    console.log('response', res);
-  })
 }
