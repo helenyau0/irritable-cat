@@ -1,4 +1,6 @@
 #header {
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
   position: fixed;
   width: 100%;
   height: 30px;
@@ -15,6 +17,8 @@
 }
 
 #addButton {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 16px;
   width: 258px;
   height: 40px;
   margin-left: 2px;
@@ -22,6 +26,8 @@
 }
 
 #content {
+  font-family: 'Inconsolata', monospace;
+  font-size: 32px;
   position: fixed;
   width: 41%;
   height: 100%;
@@ -31,13 +37,16 @@
 }
 
 #previewContent {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 42px;
   position: fixed;
   width: 45%;
   height: 100%;
-  margin: -7px 0 0 940px;
+  /*margin: -7px 0 0 940px;*/
+  margin: -7px 0 0 850px;
   float: right;
-  margin-top: 45px;
-  padding-left: 20px;
+  /*margin-top: 45px;*/
+  /*padding-left: 20px;*/
 }
 
 li {
@@ -45,6 +54,8 @@ li {
 }
 
 .aycheone {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 30px;
   position: fixed;
   width: 259px;
   height: 50px;
@@ -61,6 +72,8 @@ ul {
 }
 
 .clickable {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 16px;
   border: 1px solid #000;
   background: #ccc;
   color: #000;
