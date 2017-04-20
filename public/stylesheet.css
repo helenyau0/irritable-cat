@@ -8,6 +8,16 @@
   padding: 10px;
 }
 
+#wordCount {
+  position: relative;
+  width: 125px;
+  height: 75px;
+  background-color: blue;
+  margin: 10px 0px 0px 0px;
+  z-index: 1000;
+  float: right;
+}
+
 #saveButton {
   position: fixed;
   z-index: 1000;

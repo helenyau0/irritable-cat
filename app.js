@@ -5,13 +5,13 @@ const marked = require('marked')
 const fs = require("fs");
 const bodyParser = require('body-parser')
 
-app.use(bodyParser.urlencoded({ extended: false }))
-
-app.use(bodyParser.json())
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname,'public')))
+
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -26,15 +26,11 @@ marked.setOptions({
 
 
 // ROUTES
-// app.get('/', function (req, res) {
-//   res.render('index')
-// })
 
 app.post('/save', function(req, res) {
   // console.log('req.body::', req.body);
   let {fileName, content} = req.body
   fileName = 'data/'+fileName+'.md'
-  console.log(fileName);
   fs.writeFile(fileName, content, function(error) {
     if(error) {
       console.log(error);
@@ -45,9 +41,9 @@ app.post('/save', function(req, res) {
 
 })
 
-app.get('/:filename', function(req, res) {
-  const path = 'data/'+req.params.filename
-  console.log(path);
+app.get('/:filename/:index', function(req, res) {
+  var path = 'data/'+req.params.filename
+  // console.log(path);
   var data
   fs.readFile( path, 'utf8', function(err, data) {
     if (err) {
@@ -56,17 +52,15 @@ app.get('/:filename', function(req, res) {
     data = data || ''
     const dataFolder = './data'
     fs.readdir(dataFolder, (err, files) => {
-      res.render('index', { files: files, data: data })
+      res.render('index', { files, data, index: req.params.index })
     })
   })
 })
 
 app.get('/', function(req, res) {
   const dataFolder = './data'
-  console.log('datafolder', dataFolder);
   fs.readdir(dataFolder, (err, files) => {
-    console.log('filessssssssssssss', files)
-    res.render('index', { files: files })
+    res.render('index', { files })
   })
 })
 

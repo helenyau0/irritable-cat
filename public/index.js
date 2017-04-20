@@ -1,4 +1,5 @@
 let currentFileName;
+
 function addButton() {
   currentFileName = prompt('name your mark down file');
   let node = document.createElement('li');
@@ -22,26 +23,20 @@ function addButton() {
     return header;
   })
 
-  $('div').addClass('tab-content')
-
   $('#content').on('input', function(e) {
     let contentValue = $(e.target).text()
     $('#previewContent').html(marked(contentValue))
-    console.log('marked', marked(contentValue));
   })
 }
 
+
 function tabs() {
+  $('a #fileTags').on('click', function(e) {
+    let target = $(e.target).text()
+    let header = $("#header").html(target)
 
-
-  fetch('/:filename', {
-    method: 'get'
-  }).then(function(response) {
-    console.log(response);
-  }).catch(function(error) {
-    console.log('error ' + error);
+    return header;
   })
-
 
 }
 
@@ -61,4 +56,5 @@ function saveButton() {
   });
 
   fetch(request).then( result => console.log('result::', result))
+  return result
 }
