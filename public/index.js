@@ -40,9 +40,18 @@ function tabs() {
 
 }
 
+function wordCount(){
+  let counter = 0
+  counter++
+  document.getElementById('numCount').innerHTML = counter;
+  //if any key is pressed counter increments +1
+}
+
+
 function saveButton() {
   let content = document.getElementById('content').innerHTML
   console.log('body::', content);
+
 
 
   let request = new Request('/save', {

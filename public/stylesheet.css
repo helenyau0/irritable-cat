@@ -7,15 +7,28 @@
   border: 1px solid #000;
   padding: 10px;
 }
-
+/*static div w/ words*/
 #wordCount {
   position: relative;
-  width: 125px;
-  height: 75px;
-  background-color: blue;
-  margin: 10px 0px 0px 0px;
+  width: 120px;
+  height: 35px;
+  /*stroke width: 4px;
+  border-color: blk;*/
+  color: black;
+  background-color: #ccc;
+  margin: 7px 175px 0px -14px;
   z-index: 1000;
   float: right;
+}
+/*number counter*/
+#numCount {
+  position: fixed;
+  float:right;
+  width: 75px;
+  height: 30px;
+  margin: 7px 0px -5px 1499px;
+  background-color: #ccc;
+  z-index: 1010;
 }
 
 #saveButton {
