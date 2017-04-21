@@ -1,0 +1,8 @@
+#leftSide
+  h1.aycheone Markdown App
+  button#addButton(onclick='addButton()') New File  +
+
+  ul#navi
+    for val, index in files
+      li(onclick="tabs()")
+        a#fileTags(href='/' + val + '/' + index)=val

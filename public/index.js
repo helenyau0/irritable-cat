@@ -1,0 +1,69 @@
+let currentFileName;
+
+function addButton() {
+  currentFileName = prompt('name your mark down file');
+  let node = document.createElement('li');
+  let textNode = document.createTextNode(currentFileName);
+  node.appendChild(textNode);
+  document.getElementById('navi').appendChild(node);
+
+  let div = document.createElement('div')
+  document.getElementById('content').appendChild(div)
+
+  $('#navi li').attr('id', function(i) {
+    return 'id'+(i+1);
+  })
+
+  $('#navi li').addClass("clickable")
+
+  $('.clickable').on('click', function(e) {
+    let target = $(e.target).text()
+    let header = $("#header").html(target)
+
+    return header;
+  })
+
+  $('#content').on('input', function(e) {
+    let contentValue = $(e.target).text()
+    $('#previewContent').html(marked(contentValue))
+  })
+}
+
+
+function tabs() {
+  $('a #fileTags').on('click', function(e) {
+    let target = $(e.target).text()
+    let header = $("#header").html(target)
+
+    return header;
+  })
+
+}
+
+function wordCount(){
+  let counter = 0
+  counter++
+  document.getElementById('numCount').innerHTML = counter;
+  //if any key is pressed counter increments +1
+}
+
+
+function saveButton() {
+  let content = document.getElementById('content').innerHTML
+  console.log('body::', content);
+
+
+
+  let request = new Request('/save', {
+  	method: 'POST',
+    body: JSON.stringify({content: content, fileName: currentFileName}),
+  	mode: 'cors',
+  	redirect: 'follow',
+  	headers: new Headers({
+  		'Content-Type': 'application/json'
+  	})
+  });
+
+  fetch(request).then( result => console.log('result::', result))
+  return result
+}

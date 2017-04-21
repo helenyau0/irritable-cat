@@ -1,0 +1,103 @@
+#header {
+  position: fixed;
+  width: 100%;
+  height: 30px;
+  background-color: #ccc;
+  margin: -8px 0 0 251px;
+  border: 1px solid #000;
+  padding: 10px;
+}
+/*static div w/ words*/
+#wordCount {
+  position: relative;
+  width: 120px;
+  height: 35px;
+  /*stroke width: 4px;
+  border-color: blk;*/
+  color: black;
+  background-color: #ccc;
+  margin: 7px 175px 0px -14px;
+  z-index: 1000;
+  float: right;
+}
+/*number counter*/
+#numCount {
+  position: fixed;
+  float:right;
+  width: 75px;
+  height: 30px;
+  margin: 7px 0px -5px 1499px;
+  background-color: #ccc;
+  z-index: 1010;
+}
+
+#saveButton {
+  position: fixed;
+  z-index: 1000;
+  margin: 10px 0 0 1625px;
+}
+
+#addButton {
+  width: 258px;
+  height: 40px;
+  margin-left: 2px;
+  text-align: center;
+}
+
+#content {
+  position: fixed;
+  width: 41%;
+  height: 100%;
+  border: 1px solid #000;
+  margin: 44px 0 0 251px;
+  float: left;
+}
+
+#previewContent {
+  position: fixed;
+  width: 45%;
+  height: 100%;
+  margin: -7px 0 0 940px;
+  float: right;
+  margin-top: 45px;
+  padding-left: 20px;
+}
+
+/*li {
+  color: black;
+}*/
+
+.aycheone {
+  position: fixed;
+  width: 259px;
+  height: 50px;
+  border: 1px solid black;
+  background-color: #ccc;
+  margin: -52px 0 0 -2px;
+  text-align: center;
+}
+
+ul {
+  margin: 10px 0 0 10px;
+  color: #000;
+  list-style: none;
+}
+
+li {
+  border: 1px solid #000;
+  background: #ccc;
+  color: #000;
+  width: 238px;
+  height: 25px;
+  margin: -11px 0 0 -51px;
+  text-align: center;
+  padding: 10px;
+}
+
+#leftSide {
+  position: fixed;
+  background-color: #ccc;
+  margin: 44px 0 0 -8px;
+  width: 258px;
+  height: 98%;
+}

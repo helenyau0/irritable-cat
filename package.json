@@ -1,0 +1,29 @@
+{
+  "name": "irritable-cat",
+  "version": "1.0.0",
+  "description": "hello, web servers",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helenyau0/irritable-cat.git"
+  },
+  "author": "Helen Yau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/helenyau0/irritable-cat/issues"
+  },
+  "homepage": "https://github.com/helenyau0/irritable-cat#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "fs": "0.0.1-security",
+    "jstransformer-marked": "^1.0.2",
+    "marked": "^0.3.6",
+    "nodemon": "^1.11.0",
+    "pug": "^2.0.0-beta11"
+  }
+}
