@@ -32,30 +32,51 @@ function addButton() {
 
 function tabs() {
   $('a #fileTags').on('click', function(e) {
+    e.preventDefault()
     let target = $(e.target).text()
     let header = $("#header").html(target)
-
     return header;
   })
 
 }
 
-function numCount(){
-  var counter = document.getElementById('content').innerHTML.split(' ').length;
+function wordCount() {
+  let value = document.getElementById('content').innerHTML
+  let regex = (/(^\s*)|(\s*$)/gi,"");
+  let wordCount = value.trim().replace(regex, ' ').split(' ').length;
+  let charCount = value.replace(regex, '').length;
 
-  //if any key is pressed counter increments +1
+  if(value.length === 0) {
+    $('#numCount').html(0)
+    return;
+  }
+
+  $('#numCount').html(charCount-1)
 }
+
+$(document).ready(function() {
+    $('#content').change(wordCount);
+    $('#content').keydown(wordCount);
+    $('#content').keypress(wordCount);
+    $('#content').keyup(wordCount);
+    $('#content').blur(wordCount);
+    $('#content').focus(wordCount);
+    $('#content').on('input', function(e) {
+      let contentValue = $(e.target).text()
+      $('#previewContent').html(marked(contentValue))
+    })
+
+    console.log('hello');
+})
 
 
 function saveButton() {
   let content = document.getElementById('content').innerHTML
-  console.log('body::', content);
-
-
-
+  const saveingFile = currentFileName || document.getElementById('header').innerText.trim()
+  console.log('body::', content, saveingFile);
   let request = new Request('/save', {
   	method: 'POST',
-    body: JSON.stringify({content: content, fileName: currentFileName}),
+    body: JSON.stringify({content: content, fileName: saveingFile}),
   	mode: 'cors',
   	redirect: 'follow',
   	headers: new Headers({
@@ -63,6 +84,7 @@ function saveButton() {
   	})
   });
 
-  fetch(request).then( result => console.log('result::', result))
-  return result
+  fetch(request).then( function(result) {
+    return result
+  })
 }

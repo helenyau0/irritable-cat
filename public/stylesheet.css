@@ -1,5 +1,5 @@
 #header {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Roboto Mono', sans-serif;
   font-size: 24px;
   position: fixed;
   width: 100%;
@@ -16,8 +16,6 @@
   position: relative;
   width: 120px;
   height: 35px;
-  /*stroke width: 4px;
-  border-color: blk;*/
   color: black;
   background-color: #ccc;
   margin: 7px 175px 0px -14px;
@@ -30,7 +28,7 @@
   float:right;
   width: 75px;
   height: 30px;
-  margin: 7px 0px -5px 1499px;
+  margin: 8px 0px -5px 1513px;
   background-color: #ccc;
   z-index: 1010;
 }
