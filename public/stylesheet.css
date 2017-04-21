@@ -95,6 +95,8 @@ ul {
 }
 
 li {
+  font-family: 'Inconsolata', monospace;
+  font-size: 14px;
   border: 1px solid #000;
   background: #ccc;
   color: #000;

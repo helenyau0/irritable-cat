@@ -40,10 +40,9 @@ function tabs() {
 
 }
 
-function wordCount(){
-  let counter = 0
-  counter++
-  document.getElementById('numCount').innerHTML = counter;
+function numCount(){
+  var counter = document.getElementById('content').innerHTML.split(' ').length;
+
   //if any key is pressed counter increments +1
 }
 
