@@ -5,16 +5,13 @@ function addButton() {
   let node = document.createElement('li');
   let textNode = document.createTextNode(currentFileName);
   node.appendChild(textNode);
-  document.getElementById('navi').appendChild(node);
+  document.getElementById('listItems').appendChild(node);
 
-  let div = document.createElement('div')
-  document.getElementById('content').appendChild(div)
-
-  $('#navi li').attr('id', function(i) {
+  $('#listItems li').attr('id', function(i) {
     return 'id'+(i+1);
   })
 
-  $('#navi li').addClass("clickable")
+  $('#listItems li').addClass("clickable")
 
   $('.clickable').on('click', function(e) {
     let target = $(e.target).text()
@@ -55,25 +52,22 @@ function wordCount() {
 }
 
 $(document).ready(function() {
-    $('#content').change(wordCount);
-    $('#content').keydown(wordCount);
-    $('#content').keypress(wordCount);
-    $('#content').keyup(wordCount);
-    $('#content').blur(wordCount);
-    $('#content').focus(wordCount);
-    $('#content').on('input', function(e) {
-      let contentValue = $(e.target).text()
-      $('#previewContent').html(marked(contentValue))
-    })
-
-    console.log('hello');
+  $('#content').change(wordCount);
+  $('#content').keydown(wordCount);
+  $('#content').keypress(wordCount);
+  $('#content').keyup(wordCount);
+  $('#content').blur(wordCount);
+  $('#content').focus(wordCount);
+  $('#content').on('input', function(e) {
+    let contentValue = $(e.target).text()
+    $('#previewContent').html(marked(contentValue))
+  })
 })
 
 
 function saveButton() {
   let content = document.getElementById('content').innerHTML
   const saveingFile = currentFileName || document.getElementById('header').innerText.trim()
-  console.log('body::', content, saveingFile);
   let request = new Request('/save', {
   	method: 'POST',
     body: JSON.stringify({content: content, fileName: saveingFile}),

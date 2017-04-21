@@ -28,7 +28,6 @@ marked.setOptions({
 // ROUTES
 
 app.post('/save', function(req, res) {
-  console.log('helllo were saving');
   console.log('req.body::', req.body);
   let {fileName, content} = req.body
 
@@ -38,7 +37,6 @@ app.post('/save', function(req, res) {
     fileName = 'data/'+fileName+'.md'
   }
 
-  console.log(fileName);
   fs.writeFile(fileName, content, function(error) {
     if(error) {
       console.log(error);
