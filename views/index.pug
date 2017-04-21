@@ -1,6 +1,7 @@
 html
   head
     link(rel='stylesheet' href='/stylesheet.css')
+    link(href='https://fonts.googleapis.com/css?family=Coda|Fredoka+One|Inconsolata|Karla|Roboto+Mono', rel='stylesheet')
     script(src="marked.js")
     title Hello Web Servers
   body
@@ -9,7 +10,5 @@ html
     include editor.pug
     include preview.pug
 
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
     script(src='index.js')
-    script(src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous")

@@ -1,4 +1,6 @@
 #header {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 24px;
   position: fixed;
   width: 100%;
   height: 30px;
@@ -9,11 +11,11 @@
 }
 /*static div w/ words*/
 #wordCount {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 16px;
   position: relative;
   width: 120px;
   height: 35px;
-  /*stroke width: 4px;
-  border-color: blk;*/
   color: black;
   background-color: #ccc;
   margin: 7px 175px 0px -14px;
@@ -26,7 +28,7 @@
   float:right;
   width: 75px;
   height: 30px;
-  margin: 7px 0px -5px 1499px;
+  margin: 8px 0px -5px 1513px;
   background-color: #ccc;
   z-index: 1010;
 }
@@ -38,6 +40,8 @@
 }
 
 #addButton {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 16px;
   width: 258px;
   height: 40px;
   margin-left: 2px;
@@ -45,6 +49,8 @@
 }
 
 #content {
+  font-family: 'Inconsolata', monospace;
+  font-size: 32px;
   position: fixed;
   width: 41%;
   height: 100%;
@@ -54,7 +60,8 @@
 }
 
 #previewContent {
-  position: fixed;
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 42px;  position: fixed;
   width: 45%;
   height: 100%;
   margin: -7px 0 0 940px;
@@ -68,6 +75,8 @@
 }*/
 
 .aycheone {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 30px;
   position: fixed;
   width: 259px;
   height: 50px;
@@ -84,6 +93,8 @@ ul {
 }
 
 li {
+  font-family: 'Inconsolata', monospace;
+  font-size: 14px;
   border: 1px solid #000;
   background: #ccc;
   color: #000;

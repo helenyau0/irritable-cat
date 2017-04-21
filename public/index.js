@@ -5,16 +5,13 @@ function addButton() {
   let node = document.createElement('li');
   let textNode = document.createTextNode(currentFileName);
   node.appendChild(textNode);
-  document.getElementById('navi').appendChild(node);
+  document.getElementById('listItems').appendChild(node);
 
-  let div = document.createElement('div')
-  document.getElementById('content').appendChild(div)
-
-  $('#navi li').attr('id', function(i) {
+  $('#listItems li').attr('id', function(i) {
     return 'id'+(i+1);
   })
 
-  $('#navi li').addClass("clickable")
+  $('#listItems li').addClass("clickable")
 
   $('.clickable').on('click', function(e) {
     let target = $(e.target).text()
@@ -32,31 +29,48 @@ function addButton() {
 
 function tabs() {
   $('a #fileTags').on('click', function(e) {
+    e.preventDefault()
     let target = $(e.target).text()
     let header = $("#header").html(target)
-
     return header;
   })
 
 }
 
-function wordCount(){
-  let counter = 0
-  counter++
-  document.getElementById('numCount').innerHTML = counter;
-  //if any key is pressed counter increments +1
+function wordCount() {
+  let value = document.getElementById('content').innerHTML
+  let regex = (/(^\s*)|(\s*$)/gi,"");
+  let wordCount = value.trim().replace(regex, ' ').split(' ').length;
+  let charCount = value.replace(regex, '').length;
+
+  if(value.length === 0) {
+    $('#numCount').html(0)
+    return;
+  }
+
+  $('#numCount').html(charCount-1)
 }
+
+$(document).ready(function() {
+  $('#content').change(wordCount);
+  $('#content').keydown(wordCount);
+  $('#content').keypress(wordCount);
+  $('#content').keyup(wordCount);
+  $('#content').blur(wordCount);
+  $('#content').focus(wordCount);
+  $('#content').on('input', function(e) {
+    let contentValue = $(e.target).text()
+    $('#previewContent').html(marked(contentValue))
+  })
+})
 
 
 function saveButton() {
   let content = document.getElementById('content').innerHTML
-  console.log('body::', content);
-
-
-
+  const saveingFile = currentFileName || document.getElementById('header').innerText.trim()
   let request = new Request('/save', {
   	method: 'POST',
-    body: JSON.stringify({content: content, fileName: currentFileName}),
+    body: JSON.stringify({content: content, fileName: saveingFile}),
   	mode: 'cors',
   	redirect: 'follow',
   	headers: new Headers({
@@ -64,6 +78,7 @@ function saveButton() {
   	})
   });
 
-  fetch(request).then( result => console.log('result::', result))
-  return result
+  fetch(request).then( function(result) {
+    return result
+  })
 }

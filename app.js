@@ -28,9 +28,15 @@ marked.setOptions({
 // ROUTES
 
 app.post('/save', function(req, res) {
-  // console.log('req.body::', req.body);
+  console.log('req.body::', req.body);
   let {fileName, content} = req.body
-  fileName = 'data/'+fileName+'.md'
+
+  if( fileName.split('.').length >= 0 ) {
+    fileName = 'data/'+fileName
+  } else {
+    fileName = 'data/'+fileName+'.md'
+  }
+
   fs.writeFile(fileName, content, function(error) {
     if(error) {
       console.log(error);
@@ -41,10 +47,10 @@ app.post('/save', function(req, res) {
 
 })
 
-app.get('/:filename/:index', function(req, res) {
-  var path = 'data/'+req.params.filename
-  // console.log(path);
-  var data
+app.get('/:filename', function(req, res) {
+  const path = 'data/'+req.params.filename
+  const markdownFile = req.params.filename
+  let data
   fs.readFile( path, 'utf8', function(err, data) {
     if (err) {
       return console.log(err);
@@ -52,7 +58,7 @@ app.get('/:filename/:index', function(req, res) {
     data = data || ''
     const dataFolder = './data'
     fs.readdir(dataFolder, (err, files) => {
-      res.render('index', { files, data, index: req.params.index })
+      res.render('index', { files, data, markdownFile })
     })
   })
 })
