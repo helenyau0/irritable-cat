@@ -48,7 +48,7 @@ function wordCount() {
     return;
   }
 
-  $('#numCount').html(charCount-1)
+  $('#numCount').html(wordCount -1)
 }
 
 $(document).ready(function() {
@@ -68,6 +68,7 @@ $(document).ready(function() {
 function saveButton() {
   let content = document.getElementById('content').innerHTML
   const saveingFile = currentFileName || document.getElementById('header').innerText.trim()
+  document.cookie = saveingfile
   let request = new Request('/save', {
   	method: 'POST',
     body: JSON.stringify({content: content, fileName: saveingFile}),
